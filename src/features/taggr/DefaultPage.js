@@ -5,6 +5,7 @@ import * as actions from './redux/actions';
 
 import CreateNewProject from './CreateNewProject.js';
 import ProjectList from './ProjectList.js';
+import NewProjectForm from './NewProjectForm.js';
 
 export class DefaultPage extends Component {
   static propTypes = {
@@ -18,6 +19,7 @@ export class DefaultPage extends Component {
         Page Content: taggr/DefaultPage
         <CreateNewProject />
         <ProjectList />
+        <NewProjectForm />
       </div>
     );
   }
