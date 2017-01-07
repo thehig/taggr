@@ -1,0 +1,35 @@
+.min-height {
+    min-height: 30px;
+}
+
+.debug-colors .dbg-color-1 {
+    background: red;
+}
+
+.debug-colors .dbg-color-2 {
+    background: green;
+}
+
+.debug-colors .dbg-color-3 {
+    background: blue;
+}
+
+.debug-colors .dbg-color-4 {
+    background: orange;
+}
+
+.debug-colors .dbg-color-5 {
+    background: cyan;
+}
+
+.debug-colors .dbg-color-6 {
+    background: grey;
+}
+
+.debug-colors .dbg-color-7 {
+    background: teal;
+}
+
+ul.list-group {
+  margin-bottom: 0px;
+}
