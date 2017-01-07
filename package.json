@@ -3,6 +3,8 @@
   "version": "0.0.1",
   "private": true,
   "description": "My awesome project.",
+  "repository": "git@github.com:thehig/taggr.git",
+  "author": "David Higgins <thehig@gmail.com>",
   "scripts": {
     "add:action": "node ./tools/cli/add_action.js",
     "add:async-action": "node ./tools/cli/add_async_action.js",
