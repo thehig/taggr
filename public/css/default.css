@@ -1,3 +1,7 @@
+.hidden {
+    display: none;
+}
+
 .min-height {
     min-height: 30px;
 }

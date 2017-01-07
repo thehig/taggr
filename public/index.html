@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <div class="container-fluid debug-colors">
+    <div class="container-fluid">
         <div class="row">
             <!-- Add New Project -->
             <div class="col">
@@ -56,13 +56,78 @@
             <!-- New Project Input -->
             <div class="col">
                 <section class="min-height section-3 dbg-color-3">
-                    <label for="new-project">New Project</label>
-                    <div id="new-project"></div>
+                    <form class="form-horizontal">
+                    <fieldset>
+
+                    <!-- Form Name -->
+                    <legend>Create New Project</legend>
+
+                    <!-- Text input-->
+                    <div class="form-group">
+                      <label class="col-md-4 control-label" for="input-new-project-name">Project Name</label>  
+                      <div class="col-md-4">
+                      <input id="input-new-project-name" name="input-new-project-name" type="text" placeholder="" class="form-control input-md">
+                        
+                      </div>
+                    </div>
+
+                    <!-- Multiple Checkboxes -->
+                    <div class="form-group">
+                      <label class="col-md-4 control-label" for="cb-tags">Select Tags</label>
+                      <div class="col-md-4">
+                      <div class="checkbox">
+                        <label for="cb-tag-0">
+                          <input type="checkbox" name="cb-tags" id="cb-tag-0" value="1">
+                          Javascript
+                        </label>
+                      </div>
+                      <div class="checkbox">
+                        <label for="cb-tag-1">
+                          <input type="checkbox" name="cb-tags" id="cb-tag-1" value="2">
+                          Node
+                        </label>
+                      </div>
+                      <div class="checkbox">
+                        <label for="cb-tag-2">
+                          <input type="checkbox" name="cb-tags" id="cb-tag-2" value="3">
+                          Css
+                        </label>
+                      </div>
+                      </div>
+                    </div>
+
+                    <!-- Appended Input-->
+                    <div class="form-group">
+                      <label class="col-md-4 control-label" for="input-new-tag-name">Create New Tag</label>
+                      <div class="col-md-4">
+                        <div class="input-group">
+                          <input id="input-new-tag-name" name="input-new-tag-name" class="form-control" placeholder="" type="text">
+                          <span class="input-group-btn">
+                            <button class="btn btn-success" type="button" id="btn-new-project-create-tag">Create</button>
+                          </span>
+                        </div>
+                        
+                      </div>
+                    </div>
+                    <!-- Button -->
+                    <div class="form-group">
+                      <label class="col-md-4 control-label" for="btn-new-project-done"></label>
+                      <div class="col-md-4 pull-right">
+                        <button id="btn-new-project-done" name="btn-new-project-done" class="btn btn-lg btn-primary">Done</button>
+                      </div>
+                    </div>
+
+                    </fieldset>
+                    </form>
+
                 </section>
             </div>
             <!-- /New Project Input/ -->
         </div>
     </div>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> -->
 </body>
 
 </html>
