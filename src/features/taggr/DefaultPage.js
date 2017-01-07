@@ -3,16 +3,19 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as actions from './redux/actions';
 
-export class TestPage1 extends Component {
+import CreateNewProject from './CreateNewProject.js';
+
+export class DefaultPage extends Component {
   static propTypes = {
-    home: PropTypes.object.isRequired,
+    taggr: PropTypes.object.isRequired,
     actions: PropTypes.object.isRequired,
   };
 
   render() {
     return (
-      <div className="home-test-page-1">
-        Page Content: home/TestPage1
+      <div className="taggr-default-page">
+        Page Content: taggr/DefaultPage
+        <CreateNewProject />
       </div>
     );
   }
@@ -21,7 +24,7 @@ export class TestPage1 extends Component {
 /* istanbul ignore next */
 function mapStateToProps(state) {
   return {
-    home: state.home,
+    taggr: state.taggr,
   };
 }
 
@@ -35,4 +38,4 @@ function mapDispatchToProps(dispatch) {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(TestPage1);
+)(DefaultPage);

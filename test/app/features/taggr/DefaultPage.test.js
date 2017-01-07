@@ -1,20 +1,20 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { expect } from 'chai';
-import { TestPage2 } from 'features/home/TestPage2';
+import { DefaultPage } from 'features/taggr/DefaultPage';
 
-describe('home/TestPage2', () => {
+describe('taggr/DefaultPage', () => {
   it('renders node with correct class name', () => {
     const pageProps = {
-      home: {},
+      taggr: {},
       actions: {},
     };
     const renderedComponent = shallow(
-      <TestPage2 {...pageProps} />
+      <DefaultPage {...pageProps} />
     );
 
     expect(
-      renderedComponent.find('.home-test-page-2').node
+      renderedComponent.find('.taggr-default-page').node
     ).to.exist;
   });
 });

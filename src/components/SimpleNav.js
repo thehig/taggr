@@ -13,7 +13,7 @@ export default class SimpleNav extends PureComponent {
 
   renderLinks(items, basePath) {
     return (
-      <ul>
+      <ul className="list-inline">
         {
           items.reduce((prev, item) => {
             let path;

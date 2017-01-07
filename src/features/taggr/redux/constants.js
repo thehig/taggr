@@ -1,0 +1,1 @@
+export const TAGGR_TEST_ACTION = 'TAGGR_TEST_ACTION';
