@@ -1,104 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>taggr</title>
-
     <!-- Bootstrap -->
-    <link href="css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link href="css/default.css" rel="stylesheet">
-  </head>
-  <body>
+</head>
 
-
+<body>
     <div class="container-fluid debug-colors">
         <div class="row">
+            <!-- Add New Project -->
             <div class="col">
                 <section class="min-height section-1 dbg-color-1">
-                    
                     <label for="add-new-project">Add new Project</label>
                     <div class="input-group">
-                          <input id="add-new-project" type="text" class="form-control" placeholder="New project name" />
-                          <span class="input-group-btn">
+                        <input id="add-new-project" type="text" class="form-control" placeholder="New project name" />
+                        <span class="input-group-btn">
                             <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-plus"></span> Add</button>
-                          </span>
-                    </div><!-- /input-group -->
-
+                        </span>
+                    </div>
+                    <!-- /input-group -->
                 </section>
             </div>
+            <!-- /Add New Project/ -->
+            <!-- List Projects -->
             <div class="col">
                 <section class="min-height section-2 dbg-color-2">
-                    
                     <label for="list-projects">List Projects</label>
                     <ul id="list-projects" class="list-group">
-                      
-
-                      <li class="list-group-item">
-                          My Project Name
-
-                          <span class="pull-right">
+                        <li class="list-group-item">
+                            My Project Name
+                            <span class="pull-right">
                               <span class="btn btn-xs btn-primary">
                                   <span class="glyphicon glyphicon-wrench"></span>
-                              </span>
-
-                              <span class="btn btn-xs btn-danger">
+                            </span>
+                            <span class="btn btn-xs btn-danger">
                                   <span class="glyphicon glyphicon-trash"></span>
-                              </span>
-                          </span>
-
-                      </li>
-
-
-
-                      <li class="list-group-item">Dapibus ac facilisis in</li>
-                      <li class="list-group-item">Morbi leo risus</li>
-                      <li class="list-group-item">Porta ac consectetur ac</li>
-                      <li class="list-group-item">Vestibulum at eros</li>
+                            </span>
+                            </span>
+                        </li>
+                        <li class="list-group-item">Dapibus ac facilisis in</li>
+                        <li class="list-group-item">Morbi leo risus</li>
+                        <li class="list-group-item">Porta ac consectetur ac</li>
+                        <li class="list-group-item">Vestibulum at eros</li>
                     </ul>
-
                 </section>
             </div>
+            <!-- /List Projects/ -->
+            <!-- New Project Input -->
             <div class="col">
                 <section class="min-height section-3 dbg-color-3">
-                    
-                   <form class="form-horizontal">
-                     <div class="form-group">
-                       <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
-                       <div class="col-sm-10">
-                         <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
-                       </div>
-                     </div>
-                     <div class="form-group">
-                       <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
-                       <div class="col-sm-10">
-                         <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
-                       </div>
-                     </div>
-                     <div class="form-group">
-                       <div class="col-sm-offset-2 col-sm-10">
-                         <div class="checkbox">
-                           <label>
-                             <input type="checkbox"> Remember me
-                           </label>
-                         </div>
-                       </div>
-                     </div>
-                     <div class="form-group">
-                       <div class="col-sm-offset-2 col-sm-10">
-                         <button type="submit" class="btn btn-default">Sign in</button>
-                       </div>
-                     </div>
-                   </form>
-
+                    <label for="new-project">New Project</label>
+                    <div id="new-project"></div>
                 </section>
             </div>
+            <!-- /New Project Input/ -->
         </div>
     </div>
+</body>
 
-
-
-  </body>
 </html>
