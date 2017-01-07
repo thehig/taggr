@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import * as actions from './redux/actions';
 
 import CreateNewProject from './CreateNewProject.js';
+import ProjectList from './ProjectList.js';
 
 export class DefaultPage extends Component {
   static propTypes = {
@@ -16,6 +17,7 @@ export class DefaultPage extends Component {
       <div className="taggr-default-page">
         Page Content: taggr/DefaultPage
         <CreateNewProject />
+        <ProjectList />
       </div>
     );
   }
