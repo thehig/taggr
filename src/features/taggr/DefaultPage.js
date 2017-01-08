@@ -13,13 +13,20 @@ export class DefaultPage extends Component {
     actions: PropTypes.object.isRequired,
   };
 
+
+  constructor(props) {
+    super(props);
+  }
+
   render() {
     return (
       <div className="taggr-default-page">
-        Page Content: taggr/DefaultPage
-        <CreateNewProject />
-        <ProjectList />
-        <NewProjectForm />
+        <CreateNewProject createProject={this.props.actions.createNewProject}/>
+        {
+          this.props.taggr.projects.length > 0 && 
+            <ProjectList projects={this.props.taggr.projects} deleteProject={this.props.actions.deleteProject}/>
+        }
+        {/*<NewProjectForm />*/}
       </div>
     );
   }

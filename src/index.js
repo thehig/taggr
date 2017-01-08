@@ -10,6 +10,9 @@ import configStore from './common/configStore';
 const store = configStore();
 const history = syncHistoryWithStore(browserHistory, store);
 
+// Provide access to the store to allow `document.store.dispatch({type:""});` from Chrome
+document.store = store;
+
 const root = document.createElement('div');
 document.body.appendChild(root);
 
