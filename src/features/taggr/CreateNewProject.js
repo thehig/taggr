@@ -1,26 +1,18 @@
 import React, { PureComponent, PropTypes } from 'react';
 import { reduxForm, Field, change } from 'redux-form';
-import ReactDOM from 'react-dom';
 
-const validateCreateNewProject = (values)=>{
-  const errors = {};
-  if(!values.projectName) errors.projectName = "Required";
-  return errors;
-};
+import cn from 'classnames';
 
-const renderInput = (field)=>{
-  console.log(field);
-  return (
-    <div className="form-group">
-      <label className="col-md-4 control-label">{field.placeholder}</label>
-      <div className="col-md-4">
-        <input className="form-control input-md" {...field.input} placeholder={field.placeholder}/>
+// Render an input field capable of displaying errors
+const renderInput = (field)=>
+  <div className={cn("form-group",  {"has-error": field.meta.error && field.meta.touched})} >
+    <label className="col control-label">{field.placeholder}</label>
+    <div className="col">
+      <input className="form-control input-md" {...field.input} placeholder={field.placeholder}/>
 
-        {field.meta.error && field.meta.touched && <span>{field.meta.error}</span>}
-      </div>
+      {field.meta.error && field.meta.touched && <span className="help-block">{field.meta.error}</span>}
     </div>
-  );
-};
+  </div>
 
 class CreateNewProject extends PureComponent {
   static propTypes = {
@@ -33,10 +25,8 @@ class CreateNewProject extends PureComponent {
   }
 
   createProjectClick(values){
-    if(!values.projectName) return;
     this.props.createProject(values.projectName);
     this.props.reset();
-    // ReactDOM.findDOMNode(this.refs.projectName).focus();
   }
 
   render(){
@@ -44,23 +34,22 @@ class CreateNewProject extends PureComponent {
       <div className="taggr-create-new-project">
         <section className="min-height section-1 dbg-color-1">
 
-        <form className="form-horizontal" onSubmit={this.props.handleSubmit(this.createProjectClick)}>
-        <fieldset>
+          <form className="form-horizontal" onSubmit={this.props.handleSubmit(this.createProjectClick)}>
+            <fieldset>
 
-        <legend>Create New Project</legend>
+              <legend>Create New Project</legend>
 
-        <Field name="projectName" component={renderInput} placeholder="Project Name"/>
+              <Field name="projectName" component={renderInput} placeholder="Project Name"/>
 
-        {/*<!-- Button -->*/}
-        <div className="form-group">
-          <div className="col-md-4">
-            <button type="submit" className="btn btn-primary">Create</button>
-          </div>
-        </div>
+              {/*<!-- Button -->*/}
+              <div className="form-group">
+                <div className="col-md-4">
+                  <button type="submit" className="btn btn-primary">Create</button>
+                </div>
+              </div>
 
-        </fieldset>
-        </form>
-
+            </fieldset>
+          </form>
 
         </section>
       </div>
@@ -68,8 +57,14 @@ class CreateNewProject extends PureComponent {
   }
 }
 
+// Wrap component with reduxForm decorator
 CreateNewProject = reduxForm({ 
   form: 'createProjectForm',
-  validate: validateCreateNewProject
+  validate: (values)=>{
+    const errors = {};
+    if(!values.projectName) errors.projectName = "Required";
+    return errors;
+  }
 })(CreateNewProject);
+
 export default CreateNewProject;
