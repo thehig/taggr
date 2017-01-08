@@ -3,7 +3,8 @@ import {
 } from './index';
 
 export default {
-  path: 'taggr',
+  path: '',
+  name: 'taggr',
   childRoutes: [
     { path: 'default-page', component: DefaultPage, isIndex: true },
   ],

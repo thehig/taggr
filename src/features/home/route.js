@@ -3,7 +3,7 @@ import {
 } from './index';
 
 export default {
-  path: '',
+  path: '/home',
   name: 'home',
   childRoutes: [
     { path: 'default-page', component: DefaultPage, isIndex: true },

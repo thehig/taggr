@@ -16,43 +16,41 @@ export class DefaultPage extends Component {
   }
 
   render() {
+    const { creatingProject, projects, tags } = this.props.taggr;
+    const { createNewProject, doneCreating, deleteProject } = this.props.actions;
+
     // Get the last project in the list, assumed to be the one we're working on
-    const lastProject = this.props.taggr.projects[this.props.taggr.projects.length-1] || undefined;
+    const lastProject = projects[projects.length - 1] || undefined;
 
-    // Action to create a new project
-    const newProjectAction = this.props.actions.createNewProject;
+    // Create New Project Component
+    const createNewProjectOptions = {
+      createAction: createNewProject
+    }
 
-    // Are we currently creating a project?
-    const creatingProject = this.props.taggr.creatingProject;
-
-    // New Project Form
-    const newProjectOptions = {
+    // New Project Form Component
+    const newProjectFormOptions = {
       project: lastProject,
-      tags: this.props.taggr.tags,
-      doneAction: this.props.actions.doneCreating
+      tags,
+      doneAction: doneCreating
     };
 
-    // Project List
+    // Project List Component
     const projectListOptions = {
-      projects: this.props.taggr.projects,
-      deleteAction: this.props.actions.deleteProject
+      projects,
+      deleteAction: deleteProject
     };
-    
 
-    
     return (
       <div className="taggr-default-page">
-
         { 
           creatingProject && lastProject
-            ? <NewProjectForm { ...newProjectOptions }/>
-            : <CreateNewProject createProject={newProjectAction}/>
+            ? <NewProjectForm { ...newProjectFormOptions }/>
+            : <CreateNewProject { ...createNewProjectOptions }/>
         }
 
         {
-          // Show the projects list if length > 0
-          !creatingProject && this.props.taggr.projects.length > 0 
-            && <ProjectList {...projectListOptions}/>
+          !creatingProject && projects.length > 0
+            && <ProjectList { ...projectListOptions }/>
         }
       </div>
     );

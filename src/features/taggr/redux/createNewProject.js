@@ -4,11 +4,11 @@ import {
 
 let projectIdCounter = 0;
 
-export function createNewProject(name) {
+export function createNewProject(values) {
   return {
     type: CREATE_NEW_PROJECT,
     payload: {
-      name,
+      ...values,
       id: projectIdCounter++
     }
   };
@@ -17,8 +17,6 @@ export function createNewProject(name) {
 export function reducer(state, action) {
   switch (action.type) {
     case CREATE_NEW_PROJECT:
-      // console.log(`${CREATE_NEW_PROJECT} Reducer: ${action.payload} State: ${JSON.stringify(state)}`);
-      if(!action.payload.name) return state;
       return {
         ...state,
         projects: [...state.projects, {...action.payload}],

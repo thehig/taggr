@@ -6,16 +6,17 @@ import { InputWrapper } from './index';
 
 class CreateNewProject extends PureComponent {
   static propTypes = {
-    createProject: PropTypes.func.isRequired
+    createAction: PropTypes.func.isRequired
   };
 
   constructor(props) {
     super(props);
     this.createProjectClick = ::this.createProjectClick;
+    this.renderInput = ::this.renderInput;
   }
 
   createProjectClick(values){
-    this.props.createProject(values.projectName);
+    this.props.createAction(values);
     this.props.reset();
   }
 
@@ -31,7 +32,8 @@ class CreateNewProject extends PureComponent {
 
               <legend>Create New Project</legend>
 
-              <Field name="projectName" component={this.renderInput} placeholder="Project Name"/>
+              {/* Project Name Input */}
+              <Field name="name" component={this.renderInput} placeholder="Project Name"/>
 
               {/*<!-- Button -->*/}
               <div className="form-group">
@@ -50,11 +52,11 @@ class CreateNewProject extends PureComponent {
 }
 
 // Wrap component with reduxForm decorator
-CreateNewProject = reduxForm({ 
+CreateNewProject = reduxForm({
   form: 'createProjectForm',
   validate: (values)=>{
     const errors = {};
-    if(!values.projectName) errors.projectName = "Required";
+    if(!values.name) errors.name = "Required";
     return errors;
   }
 })(CreateNewProject);
