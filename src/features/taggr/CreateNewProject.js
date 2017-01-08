@@ -1,18 +1,8 @@
 import React, { PureComponent, PropTypes } from 'react';
 import { reduxForm, Field, change } from 'redux-form';
 
-import cn from 'classnames';
+import { InputWrapper } from './index';
 
-// Render an input field capable of displaying errors
-const renderInput = (field)=>
-  <div className={cn("form-group",  {"has-error": field.meta.error && field.meta.touched})} >
-    <label className="col control-label">{field.placeholder}</label>
-    <div className="col">
-      <input className="form-control input-md" {...field.input} placeholder={field.placeholder}/>
-
-      {field.meta.error && field.meta.touched && <span className="help-block">{field.meta.error}</span>}
-    </div>
-  </div>
 
 class CreateNewProject extends PureComponent {
   static propTypes = {
@@ -29,6 +19,8 @@ class CreateNewProject extends PureComponent {
     this.props.reset();
   }
 
+  renderInput = (field) => <InputWrapper field={field}/>;
+
   render(){
     return(
       <div className="taggr-create-new-project">
@@ -39,7 +31,7 @@ class CreateNewProject extends PureComponent {
 
               <legend>Create New Project</legend>
 
-              <Field name="projectName" component={renderInput} placeholder="Project Name"/>
+              <Field name="projectName" component={this.renderInput} placeholder="Project Name"/>
 
               {/*<!-- Button -->*/}
               <div className="form-group">

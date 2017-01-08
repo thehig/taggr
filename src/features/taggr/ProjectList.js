@@ -3,7 +3,7 @@ import React, { PureComponent, PropTypes } from 'react';
 export default class ProjectList extends PureComponent {
   static propTypes = {
     projects: PropTypes.array.isRequired,
-    deleteProject: PropTypes.func.isRequired
+    deleteAction: PropTypes.func.isRequired
   };
 
   render() {
@@ -21,7 +21,7 @@ export default class ProjectList extends PureComponent {
                           <span className="btn btn-xs btn-primary">
                               <span className="glyphicon glyphicon-wrench"></span>
                         </span>
-                        <span className="btn btn-xs btn-danger" onClick={()=>{this.props.deleteProject(project.id)}}>
+                        <span className="btn btn-xs btn-danger" onClick={()=>{this.props.deleteAction(project.id)}}>
                               <span className="glyphicon glyphicon-trash"></span>
                         </span>
                         </span>

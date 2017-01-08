@@ -21,7 +21,8 @@ export function reducer(state, action) {
       if(!action.payload.name) return state;
       return {
         ...state,
-        projects: [...state.projects, {...action.payload}]
+        projects: [...state.projects, {...action.payload}],
+        creatingProject: true
       };
 
     default:

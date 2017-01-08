@@ -3,6 +3,7 @@
     [
         {
             "path": ".",
+            "name": "root",
             "folder_exclude_patterns": ["node_modules", "src", "test"]
         },
         {
@@ -12,6 +13,11 @@
         {
             "path": "test/",
             "folder_exclude_patterns": ["cli"]
+        },
+        {
+            "path": "src/features/taggr/",
+            "folder_exclude_patterns": [],
+            "file_exclude_patterns": ["route.js", "*.less", "selectors.js"]
         }
     ]
 }

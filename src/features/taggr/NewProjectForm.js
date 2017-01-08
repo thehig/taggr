@@ -1,58 +1,63 @@
 import React, { PureComponent, PropTypes } from 'react';
 import { reduxForm, Field, change } from 'redux-form';
-
 import cn from 'classnames';
+
+import { InputWrapper } from './index';
 
 class NewProjectForm extends PureComponent {
   static propTypes = {
-
+    project: PropTypes.object.isRequired,
+    tags: PropTypes.array.isRequired,
+    doneAction: PropTypes.func.isRequired
   };
 
+  // componentDidMount(){
+  //   console.log(this.props);
+  // };
+
+  constructor(props){
+    super(props);
+    this.formSubmit = ::this.formSubmit;
+  }
+
+  renderInput = (field) => <InputWrapper field={field}/>;
+
+  renderTag(tag) {
+    return (
+      <div className="col-md-4" key={tag.id}>
+        <div className="checkbox">
+          <label>
+            <input type="checkbox"/>
+            {tag.name}
+          </label>
+        </div>
+      </div>
+    );
+  };
+
+  formSubmit(){
+    this.props.doneAction();
+  }
+
   render() {
+    const { project, tags, handleSubmit } = this.props;
+
     return (
       <div className="taggr-new-project-form col">
           <section className="min-height section-3 dbg-color-3">
-              <form className="form-horizontal">
+              <form className="form-horizontal" onSubmit={handleSubmit(this.formSubmit)}>
               <fieldset>
 
               {/*<!-- Form Name -->*/}
-              <legend>New Project Form</legend>
-
-              {/*<!-- Text input-->*/}
-              <div className="form-group">
-                <label className="col-md-4 control-label" htmlFor="input-new-project-name">Project Name</label>  
-                <div className="col-md-4">
-                <input id="input-new-project-name" name="input-new-project-name" type="text" placeholder="" className="form-control input-md"/>
-                  
-                </div>
-              </div>
+              <legend>New Project: {project.name}</legend>
 
               {/*<!-- Multiple Checkboxes -->*/}
-              <div className="form-group">
-                <label className="col-md-4 control-label" htmlFor="cb-tags">Select Tags</label>
-                <div className="col-md-4">
-                <div className="checkbox">
-                  <label htmlFor="cb-tag-0">
-                    <input type="checkbox" name="cb-tags" id="cb-tag-0" value="1"/>
-                    Javascript
-                  </label>
-                </div>
-                <div className="checkbox">
-                  <label htmlFor="cb-tag-1">
-                    <input type="checkbox" name="cb-tags" id="cb-tag-1" value="2"/>
-                    Node
-                  </label>
-                </div>
-                <div className="checkbox">
-                  <label htmlFor="cb-tag-2">
-                    <input type="checkbox" name="cb-tags" id="cb-tag-2" value="3"/>
-                    Css
-                  </label>
-                </div>
-                </div>
-              </div>
+              {tags.length > 0 &&
+                <div className="form-group">
+                  {tags.map(this.renderTag)}
+                </div>}
 
-              {/*<!-- Appended Input-->*/}
+              {/*<!-- Create New Tag -->
               <div className="form-group">
                 <label className="col-md-4 control-label" htmlFor="input-new-tag-name">Create New Tag</label>
                 <div className="col-md-4">
@@ -64,12 +69,13 @@ class NewProjectForm extends PureComponent {
                   </div>
                   
                 </div>
-              </div>
-              {/*<!-- Button -->*/}
+              </div>*/}
+
+              {/*<!-- Done Button -->*/}
               <div className="form-group">
                 <label className="col-md-4 control-label" htmlFor="btn-new-project-done"></label>
                 <div className="col-md-4 pull-right">
-                  <button id="btn-new-project-done" name="btn-new-project-done" className="btn btn-lg btn-primary">Done</button>
+                  <button id="btn-new-project-done" name="btn-new-project-done" type="submit" className="btn btn-lg btn-primary">Done</button>
                 </div>
               </div>
 
