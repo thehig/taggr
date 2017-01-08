@@ -26,7 +26,7 @@ export class DefaultPage extends Component {
           this.props.taggr.projects.length > 0 && 
             <ProjectList projects={this.props.taggr.projects} deleteProject={this.props.actions.deleteProject}/>
         }
-        {/*<NewProjectForm />*/}
+        <NewProjectForm />
       </div>
     );
   }

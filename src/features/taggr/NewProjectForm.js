@@ -1,6 +1,9 @@
 import React, { PureComponent, PropTypes } from 'react';
+import { reduxForm, Field, change } from 'redux-form';
 
-export default class NewProjectForm extends PureComponent {
+import cn from 'classnames';
+
+class NewProjectForm extends PureComponent {
   static propTypes = {
 
   };
@@ -13,7 +16,7 @@ export default class NewProjectForm extends PureComponent {
               <fieldset>
 
               {/*<!-- Form Name -->*/}
-              <legend>Create New Project</legend>
+              <legend>New Project Form</legend>
 
               {/*<!-- Text input-->*/}
               <div className="form-group">
@@ -78,3 +81,14 @@ export default class NewProjectForm extends PureComponent {
     );
   }
 }
+
+// Wrap component with reduxForm decorator
+NewProjectForm = reduxForm({ 
+  form: 'newProjectForm',
+  validate: (values)=>{
+    const errors = {};
+    return errors;
+  }
+})(NewProjectForm);
+
+export default NewProjectForm;
