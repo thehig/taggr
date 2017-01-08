@@ -1,11 +1,11 @@
 import { taggrTestAction } from './taggrTestAction';
-import { createNewProject } from './createNewProject';
 import { deleteProject } from './deleteProject';
-import { doneCreating } from './doneCreating';
+import { createProjectStart } from './createProjectStart';
+import { createProjectFinish } from './createProjectFinish';
 
 export {
   taggrTestAction,
-  createNewProject,
   deleteProject,
-  doneCreating,
+  createProjectStart,
+  createProjectFinish,
 };

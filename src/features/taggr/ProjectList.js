@@ -6,6 +6,27 @@ export default class ProjectList extends PureComponent {
     deleteAction: PropTypes.func.isRequired
   };
 
+  constructor(props){
+    super(props);
+    this.renderProject = ::this.renderProject;
+  }
+
+  renderProject(project){
+    return (
+      <li className="list-group-item" key={project.id}>
+        {project.name}
+        <span className="pull-right">
+          <span className="btn btn-xs btn-primary">
+            <span className="glyphicon glyphicon-wrench"></span>
+          </span>
+          <span className="btn btn-xs btn-danger" onClick={()=>{this.props.deleteAction(project.id)}}>
+            <span className="glyphicon glyphicon-trash"></span>
+          </span>
+        </span>
+      </li>
+    );
+  }
+
   render() {
     return (
       <div className="taggr-project-list col">
@@ -13,22 +34,7 @@ export default class ProjectList extends PureComponent {
               <label htmlFor="list-projects">Projects</label>
               <ul id="list-projects" className="list-group">
                   {/* Project List Item */}
-                  {this.props.projects.map((project)=>{
-                    return (
-                      <li className="list-group-item" key={project.id}>
-                        {project.name}
-                        <span className="pull-right">
-                          <span className="btn btn-xs btn-primary">
-                              <span className="glyphicon glyphicon-wrench"></span>
-                        </span>
-                        <span className="btn btn-xs btn-danger" onClick={()=>{this.props.deleteAction(project.id)}}>
-                              <span className="glyphicon glyphicon-trash"></span>
-                        </span>
-                        </span>
-                      </li>
-                    );
-                  })}
-
+                  {this.props.projects.map(this.renderProject)}
               </ul>
           </section>
       </div>

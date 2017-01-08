@@ -11,12 +11,10 @@ class NewProjectForm extends PureComponent {
     doneAction: PropTypes.func.isRequired
   };
 
-  // componentDidMount(){
-  //   console.log(this.props);
-  // };
-
   constructor(props){
     super(props);
+    this.renderInput = ::this.renderInput;
+    this.renderTag = ::this.renderTag;
     this.formSubmit = ::this.formSubmit;
   }
 
@@ -35,8 +33,8 @@ class NewProjectForm extends PureComponent {
     );
   };
 
-  formSubmit(){
-    this.props.doneAction();
+  formSubmit(values){
+    this.props.doneAction(values);
   }
 
   render() {
@@ -44,14 +42,14 @@ class NewProjectForm extends PureComponent {
 
     return (
       <div className="taggr-new-project-form col">
-          <section className="min-height section-3 dbg-color-3">
-              <form className="form-horizontal" onSubmit={handleSubmit(this.formSubmit)}>
-              <fieldset>
+        <section className="min-height section-3 dbg-color-3">
+          <form className="form-horizontal" onSubmit={handleSubmit(this.formSubmit)}>
+            <fieldset>
 
               {/*<!-- Form Name -->*/}
               <legend>New Project: {project.name}</legend>
 
-              {/*<!-- Multiple Checkboxes -->*/}
+              {/*<!-- Tag Checkboxes -->*/}
               {tags.length > 0 &&
                 <div className="form-group">
                   {tags.map(this.renderTag)}
@@ -79,10 +77,10 @@ class NewProjectForm extends PureComponent {
                 </div>
               </div>
 
-              </fieldset>
-              </form>
+            </fieldset>
+          </form>
 
-          </section>
+        </section>
       </div>
     );
   }

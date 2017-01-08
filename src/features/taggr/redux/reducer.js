@@ -1,14 +1,14 @@
 import initialState from './initialState';
 import { reducer as taggrTestAction } from './taggrTestAction';
-import { reducer as createNewProject } from './createNewProject';
 import { reducer as deleteProject } from './deleteProject';
-import { reducer as doneCreating } from './doneCreating';
+import { reducer as createProjectStart } from './createProjectStart';
+import { reducer as createProjectFinish } from './createProjectFinish';
 
 const reducers = [
   taggrTestAction,
-  createNewProject,
   deleteProject,
-  doneCreating,
+  createProjectStart,
+  createProjectFinish,
 ];
 
 export default function reducer(state = initialState, action) {

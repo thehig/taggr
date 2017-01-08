@@ -1,27 +1,27 @@
 import { expect } from 'chai';
 
 import {
-  DONE_CREATING,
+  CREATE_PROJECT_START,
 } from 'features/taggr/redux/constants';
 
 import {
-  doneCreating,
+  createProjectStart,
   reducer,
-} from 'features/taggr/redux/doneCreating';
+} from 'features/taggr/redux/createProjectStart';
 
-describe('taggr/redux/doneCreating', () => {
-  it('action: doneCreating', () => {
+describe('taggr/redux/createProjectStart', () => {
+  it('action: createProjectStart', () => {
     const expectedAction = {
-      type: DONE_CREATING,
+      type: CREATE_PROJECT_START,
     };
-    expect(doneCreating()).to.deep.equal(expectedAction);
+    expect(createProjectStart()).to.deep.equal(expectedAction);
   });
 
-  it('reducer should handle DONE_CREATING', () => {
+  it('reducer should handle CREATE_PROJECT_START', () => {
     const prevState = {};
     const state = reducer(
       prevState,
-      { type: DONE_CREATING }
+      { type: CREATE_PROJECT_START }
     );
     expect(state).to.not.equal(prevState); // should be immutable
     expect(state).to.deep.equal(prevState); // TODO: replace this line with real case.

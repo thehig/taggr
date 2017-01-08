@@ -1,16 +1,16 @@
 import {
-  DONE_CREATING,
+  CREATE_PROJECT_FINISH,
 } from './constants';
 
-export function doneCreating() {
+export function createProjectFinish() {
   return {
-    type: DONE_CREATING,
+    type: CREATE_PROJECT_FINISH,
   };
 }
 
 export function reducer(state, action) {
   switch (action.type) {
-    case DONE_CREATING:
+    case CREATE_PROJECT_FINISH:
       return {
         ...state,
         creatingProject: false

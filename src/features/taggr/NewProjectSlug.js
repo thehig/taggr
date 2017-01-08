@@ -4,7 +4,7 @@ import { reduxForm, Field, change } from 'redux-form';
 import { InputWrapper } from './index';
 
 
-class CreateNewProject extends PureComponent {
+class NewProjectSlug extends PureComponent {
   static propTypes = {
     createAction: PropTypes.func.isRequired
   };
@@ -24,7 +24,7 @@ class CreateNewProject extends PureComponent {
 
   render(){
     return(
-      <div className="taggr-create-new-project">
+      <div className="taggr-new-project-slug">
         <section className="min-height section-1 dbg-color-1">
 
           <form className="form-horizontal" onSubmit={this.props.handleSubmit(this.createProjectClick)}>
@@ -52,13 +52,13 @@ class CreateNewProject extends PureComponent {
 }
 
 // Wrap component with reduxForm decorator
-CreateNewProject = reduxForm({
-  form: 'createProjectForm',
+NewProjectSlug = reduxForm({
+  form: 'newProjectSlug',
   validate: (values)=>{
     const errors = {};
     if(!values.name) errors.name = "Required";
     return errors;
   }
-})(CreateNewProject);
+})(NewProjectSlug);
 
-export default CreateNewProject;
+export default NewProjectSlug;

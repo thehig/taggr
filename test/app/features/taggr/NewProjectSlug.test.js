@@ -1,16 +1,16 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { expect } from 'chai';
-import { CreateNewProject } from 'src/features/taggr';
+import { NewProjectSlug } from 'src/features/taggr';
 
-describe('taggr/CreateNewProject', () => {
+describe('taggr/NewProjectSlug', () => {
   it('renders node with correct class name', () => {
     const renderedComponent = shallow(
-      <CreateNewProject />
+      <NewProjectSlug />
     );
 
     expect(
-      renderedComponent.find('.taggr-create-new-project').node
+      renderedComponent.find('.taggr-new-project-slug').node
     ).to.exist;
   });
 });

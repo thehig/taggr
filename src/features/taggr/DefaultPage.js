@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as actions from './redux/actions';
 
-import { CreateNewProject, ProjectList, NewProjectForm } from './index';
+import { NewProjectSlug, ProjectList, NewProjectForm } from './index';
 
 export class DefaultPage extends Component {
   static propTypes = {
@@ -17,21 +17,21 @@ export class DefaultPage extends Component {
 
   render() {
     const { creatingProject, projects, tags } = this.props.taggr;
-    const { createNewProject, doneCreating, deleteProject } = this.props.actions;
+    const { createProjectStart, createProjectFinish, deleteProject } = this.props.actions;
 
     // Get the last project in the list, assumed to be the one we're working on
     const lastProject = projects[projects.length - 1] || undefined;
 
-    // Create New Project Component
-    const createNewProjectOptions = {
-      createAction: createNewProject
+    // New Project Slug Component
+    const createNewProjectSlugOptions = {
+      createAction: createProjectStart
     }
 
     // New Project Form Component
     const newProjectFormOptions = {
       project: lastProject,
       tags,
-      doneAction: doneCreating
+      doneAction: createProjectFinish
     };
 
     // Project List Component
@@ -45,7 +45,7 @@ export class DefaultPage extends Component {
         { 
           creatingProject && lastProject
             ? <NewProjectForm { ...newProjectFormOptions }/>
-            : <CreateNewProject { ...createNewProjectOptions }/>
+            : <NewProjectSlug { ...createNewProjectSlugOptions }/>
         }
 
         {

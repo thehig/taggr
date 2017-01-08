@@ -1,12 +1,11 @@
 import {
-  CREATE_NEW_PROJECT,
+  CREATE_PROJECT_START,
 } from './constants';
 
 let projectIdCounter = 0;
-
-export function createNewProject(values) {
+export function createProjectStart(values) {
   return {
-    type: CREATE_NEW_PROJECT,
+    type: CREATE_PROJECT_START,
     payload: {
       ...values,
       id: projectIdCounter++
@@ -16,7 +15,7 @@ export function createNewProject(values) {
 
 export function reducer(state, action) {
   switch (action.type) {
-    case CREATE_NEW_PROJECT:
+    case CREATE_PROJECT_START:
       return {
         ...state,
         projects: [...state.projects, {...action.payload}],
