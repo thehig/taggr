@@ -1,6 +1,28 @@
 import React, { PureComponent, PropTypes } from 'react';
+import { reduxForm, Field, change } from 'redux-form';
+import ReactDOM from 'react-dom';
 
-export default class CreateNewProject extends PureComponent {
+const validateCreateNewProject = (values)=>{
+  const errors = {};
+  if(!values.projectName) errors.projectName = "Required";
+  return errors;
+};
+
+const renderInput = (field)=>{
+  console.log(field);
+  return (
+    <div className="form-group">
+      <label className="col-md-4 control-label">{field.placeholder}</label>
+      <div className="col-md-4">
+        <input className="form-control input-md" {...field.input} placeholder={field.placeholder}/>
+
+        {field.meta.error && field.meta.touched && <span>{field.meta.error}</span>}
+      </div>
+    </div>
+  );
+};
+
+class CreateNewProject extends PureComponent {
   static propTypes = {
     createProject: PropTypes.func.isRequired
   };
@@ -10,13 +32,11 @@ export default class CreateNewProject extends PureComponent {
     this.createProjectClick = ::this.createProjectClick;
   }
 
-  createProjectClick(evt){
-    evt.preventDefault();
-    if(!this.input.value) return;
-
-    this.props.createProject(this.input.value);
-    this.input.value = "";
-    this.input.focus();
+  createProjectClick(values){
+    if(!values.projectName) return;
+    this.props.createProject(values.projectName);
+    this.props.reset();
+    // ReactDOM.findDOMNode(this.refs.projectName).focus();
   }
 
   render(){
@@ -24,20 +44,20 @@ export default class CreateNewProject extends PureComponent {
       <div className="taggr-create-new-project">
         <section className="min-height section-1 dbg-color-1">
 
-        <form className="form-horizontal">
+        <form className="form-horizontal" onSubmit={this.props.handleSubmit(this.createProjectClick)}>
         <fieldset>
 
         <legend>Create New Project</legend>
 
+        <Field name="projectName" component={renderInput} placeholder="Project Name"/>
+
+        {/*<!-- Button -->*/}
         <div className="form-group">
-          <label className="control-label" htmlFor="appendedtext">Name</label>
-            <div className="input-group">
-              <input id="appendedtext" ref={(input)=> {this.input = input;}} name="appendedtext" className="form-control" placeholder="" type="text"/>
-              <span className="input-group-btn">
-                  <button className="btn btn-default" type="submit" onClick={this.createProjectClick}><span className="glyphicon glyphicon-plus"></span> Add</button>
-              </span>
+          <div className="col-md-4">
+            <button type="submit" className="btn btn-primary">Create</button>
           </div>
         </div>
+
         </fieldset>
         </form>
 
@@ -47,3 +67,9 @@ export default class CreateNewProject extends PureComponent {
     );
   }
 }
+
+CreateNewProject = reduxForm({ 
+  form: 'createProjectForm',
+  validate: validateCreateNewProject
+})(CreateNewProject);
+export default CreateNewProject;
