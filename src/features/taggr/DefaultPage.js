@@ -41,7 +41,7 @@ export class DefaultPage extends Component {
     };
 
     return (
-      <div className="taggr-default-page">
+      <div className="taggr-default-page col">
         { 
           creatingProject && lastProject
             ? <NewProjectForm { ...newProjectFormOptions }/>

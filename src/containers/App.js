@@ -9,15 +9,15 @@ export default class App extends Component {
 
   render() {
     return (
-      <div className="app container-fluid">
-        <div className="row">
+      <div className="app container">
+        {/*<div className="row">
           <div className="col-md-4">
             <h1 className="page-header">taggr</h1>
           </div>
-          <div className="col-md-3 pull-right">
+          <div className="col-md-2 pull-right">
             <SimpleNav routes={routeConfig} />
           </div>
-        </div>
+        </div>*/}
         <div className="row page-container">
           {this.props.children}
         </div>
