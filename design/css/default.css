@@ -23,7 +23,7 @@
 }
 
 .debug-colors .dbg-color-5 {
-    background: #5593B2;
+    background: #FA04E1;
 }
 
 .debug-colors .dbg-color-6 {
@@ -36,4 +36,16 @@
 
 ul.list-group {
   margin-bottom: 0px;
+}
+
+.project-tile {
+    -webkit-border-radius: 10px;
+            border-radius: 10px;
+            background: lightgrey;
+            border-color: darkgrey;
+            border-style: solid;
+            border-width: 1px;
+}
+.tags-container span {
+    margin-bottom: 4px;
 }

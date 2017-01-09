@@ -8,126 +8,69 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>taggr</title>
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+
     <link href="css/default.css" rel="stylesheet">
 </head>
 
 <body>
-    <div class="container-fluid">
-        <div class="row">
-            <!-- Add New Project -->
-            <div class="col">
-                <section class="min-height section-1 dbg-color-1">
-                    <label for="add-new-project">Add new Project</label>
-                    <div class="input-group">
-                        <input id="add-new-project" type="text" class="form-control" placeholder="New project name" />
-                        <span class="input-group-btn">
-                            <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-plus"></span> Add</button>
-                        </span>
-                    </div>
-                    <!-- /input-group -->
-                </section>
-            </div>
-            <!-- /Add New Project/ -->
-            <!-- List Projects -->
-            <div class="col">
-                <section class="min-height section-2 dbg-color-2">
-                    <label for="list-projects">List Projects</label>
-                    <ul id="list-projects" class="list-group">
-                        <li class="list-group-item">
-                            My Project Name
-                            <span class="pull-right">
-                              <span class="btn btn-xs btn-primary">
-                                  <span class="glyphicon glyphicon-wrench"></span>
-                            </span>
-                            <span class="btn btn-xs btn-danger">
-                                  <span class="glyphicon glyphicon-trash"></span>
-                            </span>
-                            </span>
-                        </li>
-                        <li class="list-group-item">Dapibus ac facilisis in</li>
-                        <li class="list-group-item">Morbi leo risus</li>
-                        <li class="list-group-item">Porta ac consectetur ac</li>
-                        <li class="list-group-item">Vestibulum at eros</li>
-                    </ul>
-                </section>
-            </div>
-            <!-- /List Projects/ -->
-            <!-- New Project Input -->
-            <div class="col">
-                <section class="min-height section-3 dbg-color-3">
-                    <form class="form-horizontal">
-                    <fieldset>
+ <!-- .container>.row>.col-xs-3.min-height+.col-xs-6.min-height>.row>.col.min-height+.col.min-height -->
+ <div class="container rdebug-colors">
+  
+  <!-- Project Tile "template" -->
+   <div class="row project-tile row-eq-height">
+    
+    <!-- Project Image Container -->
+     <div class="col-sm-auto hidden-xs-down min-height dbg-color-7">
+       <img src="http://placekitten.com/g/140/140" class="img-fluid rounded-circle mx-auto d-block" style="padding: 5px;">
+     </div>
 
-                    <!-- Form Name -->
-                    <legend>Create New Project</legend>
+     <!-- Project Info -->
+     <div class="col-sm min-height dbg-color-6">
+        <div class="row" style="height: 100%;">
+         <div class="col-sm-12 min-height dbg-color-3">
+          
+          <!-- Project Header -->
+          <h3 class="row">
+            <span class="col-sm-12">Lorem ipsum dolor sit amet, co</span>
+            <small class="hidden-xs-down col-sm-12 pull-right text-right text-muted">Date Created: 10/10/21</small>
+          </h3>
 
-                    <!-- Text input-->
-                    <div class="form-group">
-                      <label class="col-md-4 control-label" for="input-new-project-name">Project Name</label>  
-                      <div class="col-md-4">
-                      <input id="input-new-project-name" name="input-new-project-name" type="text" placeholder="" class="form-control input-md">
-                        
-                      </div>
-                    </div>
-
-                    <!-- Multiple Checkboxes -->
-                    <div class="form-group">
-                      <label class="col-md-4 control-label" for="cb-tags">Select Tags</label>
-                      <div class="col-md-4">
-                      <div class="checkbox">
-                        <label for="cb-tag-0">
-                          <input type="checkbox" name="cb-tags" id="cb-tag-0" value="1">
-                          Javascript
-                        </label>
-                      </div>
-                      <div class="checkbox">
-                        <label for="cb-tag-1">
-                          <input type="checkbox" name="cb-tags" id="cb-tag-1" value="2">
-                          Node
-                        </label>
-                      </div>
-                      <div class="checkbox">
-                        <label for="cb-tag-2">
-                          <input type="checkbox" name="cb-tags" id="cb-tag-2" value="3">
-                          Css
-                        </label>
-                      </div>
-                      </div>
-                    </div>
-
-                    <!-- Appended Input-->
-                    <div class="form-group">
-                      <label class="col-md-4 control-label" for="input-new-tag-name">Create New Tag</label>
-                      <div class="col-md-4">
-                        <div class="input-group">
-                          <input id="input-new-tag-name" name="input-new-tag-name" class="form-control" placeholder="" type="text">
-                          <span class="input-group-btn">
-                            <button class="btn btn-success" type="button" id="btn-new-project-create-tag">Create</button>
-                          </span>
-                        </div>
-                        
-                      </div>
-                    </div>
-                    <!-- Button -->
-                    <div class="form-group">
-                      <label class="col-md-4 control-label" for="btn-new-project-done"></label>
-                      <div class="col-md-4 pull-right">
-                        <button id="btn-new-project-done" name="btn-new-project-done" class="btn btn-lg btn-primary">Done</button>
-                      </div>
-                    </div>
-
-                    </fieldset>
-                    </form>
-
-                </section>
-            </div>
-            <!-- /New Project Input/ -->
+          <hr>
+          </div>
+         
+         <!-- Project Tags -->
+         <div class="col-sm-12 min-height dbg-color-2">
+          <div class="tags-container"> 
+            <span class="btn btn-secondary btn-rounded btn-sm">Default</span>
+            <span class="btn btn-primary btn-rounded btn-sm">Primary</span>
+            <span class="btn btn-success btn-rounded btn-sm">Success</span>
+            <span class="btn btn-info btn-rounded btn-sm">Info</span>
+            <span class="btn btn-warning btn-rounded btn-sm">Warning</span>
+            <span class="btn btn-danger btn-rounded btn-sm">Danger</span>
+          </div>
+         </div>
         </div>
-    </div>
+     </div>
+
+     <!-- Button Menu -->
+     <div class="col-sm-auto hidden-xs-down min-height dbg-color-7">
+      <span class="btn btn-danger" style="height: calc(100% - 10px); width: calc(100% - 10px); margin: 5px;">
+        <span class="glyphicon glyphicon-trash" style="position: absolute; top: 50%; bottom: 50%; transform: translate(-50%,-50%); line-height: 8px; font-size: 16px;"></span>
+        </span>
+     </div>
+
+   </div>
+ </div>
+  
+
 
     <!-- Latest compiled and minified JavaScript -->
-    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> -->
+<!--     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script> -->
 </body>
 
 </html>
